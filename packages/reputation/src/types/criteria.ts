@@ -1,7 +1,8 @@
 export enum OAuthProvider {
     TWITTER = "twitter",
     GITHUB = "github",
-    REDDIT = "reddit"
+    REDDIT = "reddit",
+    STACKOVERFLOW = "stackoverflow"
 }
 
 export type ReputationParameterName = string

@@ -106,5 +106,5 @@ import { getOAuthProviders } from "@interep/reputation"
 
 const providers = getOAuthProviders()
 
-console.log(providers) // ["twitter", "github", "reddit"]
+console.log(providers) // ["twitter", "github", "reddit", "stackoverflow"]
 ```

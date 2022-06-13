@@ -17,4 +17,8 @@ export type RedditParameters = {
     linkedIdentities?: number
 }
 
-export type ProviderParameters = TwitterParameters | GithubParameters | RedditParameters
+export type StackOverflowParameters = {
+    reputation?: number
+}
+
+export type ProviderParameters = TwitterParameters | GithubParameters | RedditParameters | StackOverflowParameters

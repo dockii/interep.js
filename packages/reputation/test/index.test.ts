@@ -5,7 +5,7 @@ describe("Interep reputation criteria", () => {
         it("Should return all the existing supported providers", () => {
             const expectedValue = getOAuthProviders()
 
-            expect(expectedValue).toStrictEqual(["twitter", "github", "reddit"])
+            expect(expectedValue).toStrictEqual(["twitter", "github", "reddit", "stackoverflow"])
         })
     })
 
@@ -54,6 +54,12 @@ describe("Interep reputation criteria", () => {
             expect(expectedValue).toBe("gold")
         })
 
+        it("Should return a 'gold' StackOverflow reputation", () => {
+            const expectedValue = calculateReputation(OAuthProvider.STACKOVERFLOW, { reputation: 2000 })
+
+            expect(expectedValue).toBe("gold")
+        })
+
         it("Should return a 'silver' Twitter reputation", () => {
             const expectedValue = calculateReputation(OAuthProvider.TWITTER, { botometerOverallScore: 1.4 })
 
@@ -72,6 +78,12 @@ describe("Interep reputation criteria", () => {
             expect(expectedValue).toBe("silver")
         })
 
+        it("Should return a 'silver' StackOverflow reputation", () => {
+            const expectedValue = calculateReputation(OAuthProvider.STACKOVERFLOW, { reputation: 600 })
+
+            expect(expectedValue).toBe("silver")
+        })
+
         it("Should return a 'bronze' Twitter reputation", () => {
             const expectedValue = calculateReputation(OAuthProvider.TWITTER, { followers: 600 })
 
@@ -86,6 +98,12 @@ describe("Interep reputation criteria", () => {
 
         it("Should return a 'bronze' Reddit reputation", () => {
             const expectedValue = calculateReputation(OAuthProvider.REDDIT, { coins: 600 })
+
+            expect(expectedValue).toBe("bronze")
+        })
+
+        it("Should return a 'bronze' StackOverflow reputation", () => {
+            const expectedValue = calculateReputation(OAuthProvider.STACKOVERFLOW, { reputation: 115 })
 
             expect(expectedValue).toBe("bronze")
         })
